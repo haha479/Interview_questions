@@ -15,6 +15,6 @@ def binarysearch(alist, num):
  
  
 if __name__ == '__main__':
-    lis = [5, 3, 4, 8, 22, 65, 73, 90]
+    lis = [3, 4, 67, 89, 90, 123, 200]
 
     print(binarysearch(lis, 65))
