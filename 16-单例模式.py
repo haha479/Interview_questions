@@ -1,17 +1,14 @@
-class Only(object):
+class Singleton(object):
 	__isinstance = None
-	def __init__(self,name):
-		self.name = name
-	def __new__(cls,name):
+	def __new__(cls):
 		if cls.__isinstance is None:
 			cls.__isinstance = object.__new__(cls)
 
 		return cls.__isinstance
 
 
-a = Only('haha')
-
-b = Only('hehe')
+a = Only()
+b = Only()
 
 print(id(a))
 print(id(b))
