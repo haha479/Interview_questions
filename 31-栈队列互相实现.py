@@ -1,21 +1,25 @@
+# 两个栈实现一个队列
 class Queue(object):
 	def __init__(self):
-		self._stack1 = []
-		self._stack2 = []
+		self.stack1 = []
+		self.stack2 = []
 
-	def appendTail(self, x):
-		self._stack1.append(x)
+	def push(self, item):
+		self.stack1.append(item)
 
-	def deleteHead(self):
-		if self._stack2:
-			return self._stack2.pop()
-
-		else:
-			if self._stack1:
-				while self._stack1:
-					self._stack2.append(self._stack1.pop())
-				return self._stack2.pop()
-
-			else :
+	def pop(self):
+		if self.stack2 == []:
+			if self.stack1 == []:
 				return None
-			
+			else:
+				for i in range(len(self.stack1)):
+					self.stack2.append(self.stack1.pop())
+		return self.stack2.pop()
+
+
+q = Queue()
+q.push(1)
+q.push(2)
+
+print(q.pop())
+print(q.pop())
